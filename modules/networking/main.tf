@@ -34,12 +34,16 @@ resource "aws_subnet" "private_subnets" {
   }
 }
 
-# resource "aws_nat_gateway" "example" {
-#   count             = length(var.private_subnets)
-#   connectivity_type = "private"
-#   subnet_id         = aws_subnet.private_subnets[count.index].id
+resource "aws_eip" "nat_gaterway_eip" {
+  domain = "vpc"
+}
 
-# }
+resource "aws_nat_gateway" "nat_gateway" {
+  allocation_id = aws_eip.nat_gaterway_eip.id
+  subnet_id     = aws_subnet.public_subnets[0].id
+
+  depends_on = [ aws_internet_gateway.igw ]
+}
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main_vpc.id
@@ -59,3 +63,9 @@ resource "aws_route_table_association" "public_routes" {
   route_table_id = aws_route_table.public.id
   subnet_id      = aws_subnet.public_subnets[count.index].id
 }
+
+resource "aws_route_table_association" "nat_gateway" {
+  route_table_id = aws_route_table.public.id
+  subnet_id      = aws_subnet.private_subnets[0].id
+}
+
