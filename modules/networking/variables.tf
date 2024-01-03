@@ -19,3 +19,7 @@ variable "private_subnets" {
 variable "azs" {
   type = list(string)
 }
+
+variable "cluster_name" {
+  type = string
+}

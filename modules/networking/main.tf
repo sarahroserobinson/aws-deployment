@@ -10,10 +10,15 @@ resource "aws_vpc" "main_vpc" {
 resource "aws_subnet" "public_subnets" {
   count = length(var.public_subnets)
 
-  vpc_id            = aws_vpc.main_vpc.id
-  availability_zone = var.azs[count.index]
-  cidr_block        = var.public_subnets[count.index]
+  vpc_id                  = aws_vpc.main_vpc.id
+  availability_zone       = var.azs[count.index]
+  cidr_block              = var.public_subnets[count.index]
+  map_public_ip_on_launch = true
 
+  tags = {
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+    "kubernetes.io/role/elb"                    = 1
+  }
 }
 
 resource "aws_subnet" "private_subnets" {
@@ -23,7 +28,18 @@ resource "aws_subnet" "private_subnets" {
   availability_zone = var.azs[count.index]
   cidr_block        = var.private_subnets[count.index]
 
+  tags = {
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+    "kubernetes.io/role/internal-elb"           = 1
+  }
 }
+
+# resource "aws_nat_gateway" "example" {
+#   count             = length(var.private_subnets)
+#   connectivity_type = "private"
+#   subnet_id         = aws_subnet.private_subnets[count.index].id
+
+# }
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main_vpc.id
