@@ -4,6 +4,7 @@ module "networking" {
   public_subnets  = var.public_subnets
   private_subnets = var.private_subnets
   cluster_name    = var.cluster_name
+
 }
 
 module "eks" {
@@ -28,7 +29,7 @@ module "eks" {
       instance_types = ["t3.small"]
 
       min_size     = 1
-      max_size     = 4
+      max_size     = 2
       desired_size = 2
     }
   }
