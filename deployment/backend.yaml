@@ -30,6 +30,6 @@ spec:
     app: backend-deployment
   ports:
     - protocol: TCP
-      port: 3006
+      port: 8080
       targetPort: 8080
   type: ClusterIP
