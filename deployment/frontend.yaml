@@ -17,7 +17,7 @@ spec:
         image: public.ecr.aws/z0m6d8f5/awsome_architechs:8
         ports:
         - containerPort: 80
-        env: 
+        env:
         - name: VITE_API_BASE_URL
           value: http://backend-service.default.svc.cluster.local:8080
 
