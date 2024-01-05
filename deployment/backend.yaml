@@ -17,7 +17,7 @@ spec:
       - name: awsome-architechs
         image: public.ecr.aws/z0m6d8f5/awsome_architechs:12
         ports:
-        - containerPort: 8080
+        - containerPort: 8088
 
 ---
 
@@ -30,6 +30,6 @@ spec:
     app: backend-deployment
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 8088
+      targetPort: 8088
   # type: LoadBalancer  
