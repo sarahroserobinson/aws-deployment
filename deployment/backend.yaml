@@ -28,7 +28,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: backend-service
   annotations:
-    prometheus.io/port: "actuator/prometheus"
+    prometheus.io/port: "metrics-port"
     prometheus.io/scrape: "true"
 spec:
   selector:
@@ -37,5 +37,5 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-      name: actuator/prometheus
+      name: metrics-port
   type: LoadBalancer

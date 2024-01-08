@@ -6,8 +6,9 @@ metadata:
 spec:
   endpoints:
     - interval: 10s
-      port: actuator/prometheus
+      port: metrics-port
       scrapeTimeout: 9s
+      path: "/actuator/prometheus"
   namespaceSelector:
     matchNames:
       - default
