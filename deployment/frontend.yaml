@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: awsome-architechs
-        image: public.ecr.aws/z0m6d8f5/awsome_architechs:8
+        image: public.ecr.aws/m6p2m6g2/frontend:18
         ports:
         - containerPort: 80
         env:
