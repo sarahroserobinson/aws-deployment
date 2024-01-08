@@ -8,7 +8,7 @@ spec:
     - interval: 10s
       port: metrics-port
       scrapeTimeout: 9s
-      path: "a2023f815605d45e49ebe942f7160bf2-1117121887.eu-west-2.elb.amazonaws.com/actuator/prometheus"
+      path: "/actuator/prometheus"
   namespaceSelector:
     matchNames:
       - default
