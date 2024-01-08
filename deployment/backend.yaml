@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: awsome-architechs
-        image: public.ecr.aws/z0m6d8f5/awsome_architechs:12
+        image: public.ecr.aws/m6p2m6g2/backend:20
         ports:
         - containerPort: 8080
 
@@ -32,4 +32,4 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-  type: NodePort
+  type: LoadBalancer
