@@ -1,0 +1,4 @@
+apiVersion: v2
+name: my-k8s-app-chart
+description: A Helm chart for deploying backend and frontend services
+version: 0.1.0

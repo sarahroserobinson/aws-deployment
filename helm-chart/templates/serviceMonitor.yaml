@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "my-k8s-app-chart.fullname" . }}-backend-service-monitor
+  namespace: {{ .Release.Namespace }}
+spec:
+  endpoints:
+    - interval: 10s
+      port: metrics-port
+      scrapeTimeout: 9s
+      path: "/actuator/prometheus"
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/part-of: {{ include "my-k8s-app-chart.name" . }}-backend
