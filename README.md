@@ -81,14 +81,6 @@ This group project builds and manages a cloud-based infrastructure for a learner
 * Exploring Technologies: Our project involved using Docker and Kubernetes for container orchestration and EKS for managing Kubernetes on AWS, along with Helm charts for streamlined Kubernetes management. We explored CircleCI for Continuous Integration, and Argo CD for Continuous Deployment. Furthermore, we experiemented with alternative technologies like Jenkins, a renowned automation server, to compare its CI capabilities with those of CircleCI. We also delved into Pulumi, an infrastructure as code tool that uses familiar programming languages, to understand its advantages and contrasts with Terraform. 
 
 
-## Technologies
-* AWS
-* Terraform
-* CircleCI
-* Argo CD
-* Prometheus
-* Grafana
-
 
 ## Components Deployed 
 
