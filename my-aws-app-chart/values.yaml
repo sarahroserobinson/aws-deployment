@@ -1,11 +1,13 @@
 backend:
   image: public.ecr.aws/m6p2m6g2/backend:20
   service:
+    name: backend
     type: LoadBalancer
     port: 8080
 
 frontend:
   image: public.ecr.aws/m6p2m6g2/frontend:20
   service:
+    name: frontend
     type: LoadBalancer
     port: 80

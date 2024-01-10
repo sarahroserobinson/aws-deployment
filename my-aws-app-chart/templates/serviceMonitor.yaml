@@ -14,4 +14,4 @@ spec:
       - {{ .Release.Namespace }}
   selector:
     matchLabels:
-      app.kubernetes.io/part-of: {{ include "my-aws-app-chart.name" . }}-backend
+      app.kubernetes.io/part-of: {{ .Values.backend.service.name }}
