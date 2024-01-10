@@ -8,7 +8,7 @@ backend:
 
 frontend:
   name: frontend-deployment
-  image: public.ecr.aws/m6p2m6g2/frontend:26
+  image: public.ecr.aws/m6p2m6g2/frontend:28
   service:
     name: frontend
     type: LoadBalancer
