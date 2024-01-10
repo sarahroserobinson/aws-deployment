@@ -86,7 +86,74 @@ We used ArgoCD to connect the projects repo and perform automatic synchronisatio
 In the Argo CD dashboard, connect the repo and create an application, specifying the path where the Kubernetes deployment files are located, the cluster to deploy to, and the namespace within the cluster.
 Once the application is set up in Argo CD, it will automatically sync and deploy your application based using the configurations in the deployment files. For any changes made in the deployment files or Kubernetes configurations, simply commit and push these changes to your repository and Argo CD will continuously monitor the repository for any changes and apply them. You can visualize the health and status of your application and manually sync changes if needed.
 
-#### Trouble Shooting
+### Deploying Backend, Frontend, and Monitoring Apps with Helm and ArgoCD
+
+This guide will walk you through deploying the backend, frontend, and monitoring applications on your AWS EKS cluster using Helm charts and ArgoCD. ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes.
+
+#### Prerequisites
+
+    • AWS EKS cluster set up with ArgoCD installed.
+    • Helm CLI installed on your local machine.
+    • AWS CLI configured with the necessary permissions.
+
+#### Helm Charts Structure
+The Helm charts are organized into a directory structure with the following key files:
+
+    • Chart.yaml: Metadata about the Helm chart.
+    • values.yaml: Customizable values for the backend and frontend applications.
+    • templates/: Kubernetes YAML templates for Frontend, Backend and ServiceMonitors deployments and services
+
+#### Deployment Steps
+##### 1. Clone the repository
+
+
+```bash
+# Clone this repository
+$ git clone https://github.com/AnamariaGM/ce-team-project
+
+# Go into the directory
+$ cd my-aws-helm-chart
+```
+##### 2. Customizing Values
+
+
+> **Note**
+<br> Before deploying the applications, customize the values.yaml file to suit your requirements. This file allows you to set parameters such as container images, service types, and ports.
+
+#### values.yaml
+```
+backend:
+  image: public.ecr.aws/m6p2m6g2/backend:20
+  service:
+    type: LoadBalancer
+    port: 8080
+
+frontend:
+  image: public.ecr.aws/m6p2m6g2/frontend:20
+  service:
+    type: LoadBalancer
+    port: 80
+``````
+
+##### 3.Deploying with ArgoCD
+
+1. Open a terminal and ensure you are in the root directory of the Helm charts.
+2. Package the Helm chart:
+```bash
+helm package .
+```
+3. Deploy the Helm chart using ArgoCD. Replace <YOUR-RELEASE-NAME> with your desired release name.
+```bash 
+helm install <YOUR-RELEASE-NAME> ./my-aws-app-chart
+```
+4. Access ArgoCD UI to monitor the deployment:
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+Open http://localhost:8080 in your web browser and log in with the ArgoCD credentials.
+
+
+## Trouble Shooting
 
 * Check nodes for pod utilisation, each node can hold 11 pods and if this maximum is reached you will need to configure additional pods in either the AWS management console or the Terraform code. If you are editing the Terraform code, you will need to delete your tf.state file and re-apply Terraform after configuring your maximum and desired node sizes. This is due to a bug with Terraform, where the desired size cannot be edited after a Terraform apply command has been used. This will not be solved by destroying and re-applying the terraform code, as the tf.state file will point to the original chosen desired node size.
 * Ensure RDS database is configured with the username "postgres", changes to this username can result in unexpected behaviour in PgAdmin.
