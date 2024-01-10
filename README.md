@@ -1,3 +1,57 @@
+<h1 align="center">
+  <br>
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="./media/images/app_screenshot.png" alt="Markdownify" width=""></a>
+
+</h1>
+
+
+<p align="center">
+  <a href="https://aws.amazon.com/">
+    <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white"
+         alt="Gitter" width="">
+  </a>
+  <a href="https://www.terraform.io/"><img src=https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white></a>
+  <a href="https://kubernetes.io/">
+      <img src="https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white">
+  </a>
+  <a href="https://circleci.com/">
+    <img src="https://img.shields.io/badge/circle%20ci-%23161616.svg?style=for-the-badge&logo=circleci&logoColor=white">
+  </a>
+    <a href="https://www.postgresql.org/">
+    <img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white">
+  </a>
+    </a>
+    <a href="https://prometheus.io/">
+    <img src="https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white)">
+  </a>
+    </a>
+    <a href="https://grafana.com/">
+    <img src="https://img.shields.io/badge/grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white">
+  </a>
+      </a>
+    <a href="https://argo-cd.readthedocs.io/en">
+    <img src="https://img.shields.io/badge/argocd-%235091CD.svg?style=for-the-badge&logo=argo&logoColor=white">
+  </a>
+      </a>
+    <a href="https://argo-cd.readthedocs.io/en">
+    <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">
+  </a>
+
+</p>
+
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#download">Download</a> •
+  <a href="#credits">Credits</a> •
+  <a href="#related">Related</a> •
+  <a href="#license">License</a>
+</p>
+
+![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+
+
+
 # Infrastructure Deployment with CI/CD
 
 ## by AWSome Architechs 
