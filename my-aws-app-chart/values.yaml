@@ -1,5 +1,5 @@
 backend:
-  image: public.ecr.aws/m6p2m6g2/backend:20
+  image: public.ecr.aws/m6p2m6g2/backend:22
   service:
     name: backend
     type: LoadBalancer
