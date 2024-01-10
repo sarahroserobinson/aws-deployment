@@ -64,3 +64,24 @@ resource "aws_security_group_rule" "allow_egress" {
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.allow_egress.id
 }
+
+
+
+resource "aws_security_group" "allow_db" {
+  name        = "allow_db"
+  description = "Allow database traffic"
+  vpc_id      = var.vpc_id
+
+  tags = {
+    Name = "DB"
+  }
+}
+
+resource "aws_security_group_rule" "allow_db" {
+  type              = "ingress"
+  from_port         = 5432
+  to_port           = 5432
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.allow_db.id
+}

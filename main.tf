@@ -86,7 +86,7 @@ module "security" {
 
 module "databases" {
   source = "./modules/databases"
-  vpc_security_group_ids = [module.security.allow_http_security_group_id, module.security.allow_https_security_group_id, module.security.allow_egress_security_group_id]
+  vpc_security_group_ids = [module.security.allow_http_security_group_id, module.security.allow_https_security_group_id, module.security.allow_egress_security_group_id, module.security.allow_db_security_group_id]
   subnet_ids = module.networking.public_subnets
   
 }
