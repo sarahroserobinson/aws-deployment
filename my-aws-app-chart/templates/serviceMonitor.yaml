@@ -1,8 +1,8 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: {{ include "my-aws-app-chart.fullname" . }}-backend-service-monitor
-  namespace: {{ .Release.Namespace }}
+  name: {{ .Values.serviceMonitor.name }}
+  namespace: default
 spec:
   endpoints:
     - interval: 10s
@@ -11,7 +11,7 @@ spec:
       path: "/actuator/prometheus"
   namespaceSelector:
     matchNames:
-      - {{ .Release.Namespace }}
+      - default
   selector:
     matchLabels:
       app.kubernetes.io/part-of: {{ .Values.backend.service.name }}

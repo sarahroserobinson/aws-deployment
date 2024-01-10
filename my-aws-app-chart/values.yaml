@@ -1,4 +1,5 @@
 backend:
+  name: backend-deployment
   image: public.ecr.aws/m6p2m6g2/backend:22
   service:
     name: backend
@@ -6,8 +7,14 @@ backend:
     port: 8080
 
 frontend:
+  name: frontend-deployment
   image: public.ecr.aws/m6p2m6g2/frontend:26
   service:
     name: frontend
     type: LoadBalancer
     port: 80
+
+serviceMonitor:
+  name: backend-service-monitor
+
+  

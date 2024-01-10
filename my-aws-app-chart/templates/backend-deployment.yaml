@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "my-aws-app-chart.fullname" . }}-backend
+  name: {{ .Values.backend.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "my-aws-app-chart.name" . }}-backend
+      app:  {{ .Values.backend.name }}
   template:
     metadata:
       labels:
-        app: {{ include "my-aws-app-chart.name" . }}-backend
+        app:  {{ .Values.backend.name }}
     spec:
       containers:
         - name: awesome-architects
@@ -25,13 +25,13 @@ kind: Service
 metadata:
   name: {{ .Values.backend.service.name }}
   labels:
-    app.kubernetes.io/part-of: {{ include "my-aws-app-chart.name" . }}-backend
+    app.kubernetes.io/part-of: {{ .Values.backend.service.name }}
   annotations:
     prometheus.io/port: "metrics-port"
     prometheus.io/scrape: "true"
 spec:
   selector:
-    app: {{ include "my-aws-app-chart.name" . }}-backend
+    app: {{ .Values.backend.name }}
   ports:
     - protocol: TCP
       port: 8080

@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "my-aws-app-chart.fullname" . }}-frontend
+  name: {{ .Values.frontend.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "my-aws-app-chart.name" . }}-frontend
+      app: {{ .Values.frontend.name }}
   template:
     metadata:
       labels:
-        app: {{ include "my-aws-app-chart.name" . }}-frontend
+        app: {{ .Values.frontend.name }}
     spec:
       containers:
         - name: awesome-architects
@@ -26,7 +26,7 @@ metadata:
   name: {{ .Values.frontend.service.name }}
 spec:
   selector:
-    app: {{ include "my-aws-app-chart.name" . }}-frontend
+    app: {{ .Values.frontend.name }}
   ports:
     - protocol: TCP
       port: 80
