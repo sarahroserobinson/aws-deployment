@@ -9,10 +9,19 @@ resource "aws_db_instance" "default" {
   #   parameter_group_name = "default"
   skip_final_snapshot = true
   publicly_accessible = true
+
   # enabled_cloudwatch_logs_exports = [
   #   "postgresql"
   # ]
+  db_subnet_group_name = aws_db_subnet_group.default.name
 
 }
 
+resource "aws_db_subnet_group" "default" {
+  name       = "subnet_group"
+  subnet_ids = var.subnet_ids
 
+  tags = {
+    Name = "My DB subnet group"
+  }
+}
