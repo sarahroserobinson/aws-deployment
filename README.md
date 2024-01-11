@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="./media/images/Add a heading (4).png" alt="Markdownify" width="150"></a>
+  <img src="./media/images/Add a heading (4).png" alt="Markdownify" width="150"></a>
 </h1>
 
 <p align="center">
@@ -57,7 +57,7 @@ This group project builds and manages a cloud-based infrastructure for a learner
 
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="./media/images/infrastructure.png" alt="Markdownify" width="750"></a>
+<img src="./media/images/infrastructure.png" alt="Markdownify" width="750"></a>
 </h1>
 
 
@@ -108,15 +108,31 @@ Each module's directory contains Terraform files (main.tf, variables.tf, outputs
 The [frontend](https://github.com/ggrady00/ce-team-project-frontend) and [backend](https://github.com/ggrady00/ce-team-project-backend) repo are all setup for usage with CircleCI and will build and push an image to AWS-ECR.
 In the build-image-and-push job the repo and public registry alias need to be changed in order to push to your own ECR repo.
 #### **Changes needed when building images:**
-#### **Frontend:**
-- See the .env file.
-- VITE_API_BASE_URL=backend-endpoint:8080
-- Make sure to replace ‘backend-endpoint’ with the Backend Loadbalancer DNS.
-#### **Backend:**
-- db/migration - application.yml
-- This yml file is setup to migrate the backend database to an RDS postgres instance.
-- Change the datasource url to your own RDS endpoint, port and database name.
+#### **Frontend CI configuration:**
+***Enviroment Variable:***
+<br> In the **'.env file'**, set the **'VITE_API_BASE_URL'** to the Backend Loadbalancer DNS.
+```
+VITE_API_BASE_URL = backend-endpoint:8080
+```
 
+In the db/migration/application.yml file:
+Configure the YAML file to migrate the backend database to an RDS Postgres instance.
+Update the datasource URL with your own RDS endpoint, port, and database name.
+
+#### **Backend CI configuration:**
+***Database Migration Configuration:***
+In the db/migration/application.yml file:
+- Configure the YAML file to migrate the backend database to an RDS Postgres instance.
+- Update the datasource URL with your own RDS endpoint, port, and database name.
+ 
+ ```bash 
+ datasource:
+  url: jdbc:postgresql://your-rds-endpoint:your-port/your-database-name
+ ```
+> **Note**
+<br> In the CircleCI job named build-image-and-push, ensure to modify the repository and public registry alias to match your ECR repository. This ensures that the Docker images are pushed to your specific ECR repository.
+
+These configurations should be adapted to match your specific environment and requirements.
 ### Continuous Deployment
 
 Utilize ArgoCD for automated synchronization with your project's repository, specifying deployment file paths, target cluster, and namespace in the dashboard. 
