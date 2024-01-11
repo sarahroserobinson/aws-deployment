@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="./media/images/Add a heading (4).png" alt="Markdownify" width="200"></a>
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="./media/images/Add a heading (4).png" alt="Markdownify" width="150"></a>
 </h1>
 
 <p align="center">
@@ -48,11 +48,18 @@
 
 # Infrastructure Deployment with CI/CD
 
-## by AWSome Architechs 
+### by AWSome Architechs 
 
 ## Overview
 
 This group project builds and manages a cloud-based infrastructure for a learner management system. DevOps practices were continuously integrated into the creation of this project to enhance the scalability and efficiency of the infrastructure and all for continual adaption. 
+
+
+<h1 align="center">
+  <br>
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="./media/images/infrastructure.png" alt="Markdownify" width="750"></a>
+</h1>
+
 
 * Infrastructure as Code (IaC): Creating the infrastructure with Terraform allowed for the automation of the infrastructure setup
 * CI/CD Pipeline: The use of CircleCI and ArgoCD created a seamless, automated pipeline for continuous integration and delivery, streamlining the development process.
@@ -64,12 +71,10 @@ This group project builds and manages a cloud-based infrastructure for a learner
 
 
 #### Continual Learning
-* Exploring Technologies: Our project involved using Docker and Kubernetes for container orchestration and EKS for managing Kubernetes on AWS, along with Helm charts for streamlined Kubernetes management. We explored CircleCI for Continuous Integration, and Argo CD for Continuous Deployment. Furthermore, we experiemented with alternative technologies like Jenkins, a renowned automation server, to compare its CI capabilities with those of CircleCI. We also delved into Pulumi, an infrastructure as code tool that uses familiar programming languages, to understand its advantages and contrasts with Terraform. 
-
+* Our project leveraged Docker, Kubernetes, and EKS on AWS, utilizing Helm charts for streamlined management. We explored CircleCI for Continuous Integration, Argo CD for Continuous Deployment, and compared Jenkins with CircleCI. Additionally, we experimented with Pulumi, an infrastructure as code tool, to assess its benefits and distinctions from Terraform.
 
 
 ## Components Deployed 
-
 Below is an overview of the key components this infrastructure deploys:
 
 * Virtual Private Cloud (VPC): Established a secure and isolated network environment within AWS.
@@ -114,9 +119,9 @@ In the build-image-and-push job the repo and public registry alias need to be ch
 
 ### Continuous Deployment
 
-We used ArgoCD to connect the projects repo and perform automatic synchronisation based on commits made to the repo. 
-In the Argo CD dashboard, connect the repo and create an application, specifying the path where the Kubernetes deployment files are located, the cluster to deploy to, and the namespace within the cluster.
-Once the application is set up in Argo CD, it will automatically sync and deploy your application based using the configurations in the deployment files. For any changes made in the deployment files or Kubernetes configurations, simply commit and push these changes to your repository and Argo CD will continuously monitor the repository for any changes and apply them. You can visualize the health and status of your application and manually sync changes if needed.
+Utilize ArgoCD for automated synchronization with your project's repository, specifying deployment file paths, target cluster, and namespace in the dashboard. 
+
+After setup, Argo CD deploys your application automatically based on repository commits, continually monitoring for changes. Easily manage and visualize application health, manually syncing changes if required.
 
 ### Deploying Backend, Frontend, and Monitoring Apps with Helm and ArgoCD
 
