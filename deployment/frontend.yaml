@@ -17,9 +17,6 @@ spec:
         image: public.ecr.aws/m6p2m6g2/frontend:26
         ports:
         - containerPort: 80
-        # env:
-        # - name: VITE_API_BASE_URL
-        #   value: http://a2023f815605d45e49ebe942f7160bf2-1117121887.eu-west-2.elb.amazonaws.com:8080
 
 ---
 

@@ -1,9 +1,7 @@
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="./media/images/app_screenshot.png" alt="Markdownify" width=""></a>
-
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="./media/images/Add a heading (4).png" alt="Markdownify" width="200"></a>
 </h1>
-
 
 <p align="center">
   <a href="https://aws.amazon.com/">
@@ -40,29 +38,17 @@
 </p>
 
 <p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#download">Download</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
-  <a href="#license">License</a>
+  <a href="#Overview#">Overview</a> •
+  <a href="#Components Deployed#">Components Deployed</a> •
+  <a href="#Directories and File Structure#">Infrastructure</a> •
+  <a href="#Usage#">Usage</a> •
+  <a href="#Troubleshooting#">Troubleshooting</a>
+
 </p>
-
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
-
-
 
 # Infrastructure Deployment with CI/CD
 
 ## by AWSome Architechs 
-
-## Contents
-1. [Overview](#overview)
-2. [Technologies](#technologies)
-3. [Components Deployed](#components-deployed)
-4. [Directories and File Structure](#directories-and-file-structure) 
-5. [Usage](#usage)
-6. [Troubleshooting](#troubleshooting)
 
 ## Overview
 
