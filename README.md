@@ -3,6 +3,11 @@
   <img src="./media/images/Add a heading (4).png" alt="Markdownify" width="150"></a>
 </h1>
 
+<h1 align="center">
+Infrastructure Deployment with CI/CD
+</h1>
+
+
 <p align="center">
   <a href="https://aws.amazon.com/">
     <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white"
@@ -38,15 +43,14 @@
 </p>
 
 <p align="center">
-  <a href="#Overview#">Overview</a> •
-  <a href="#Components Deployed#">Components Deployed</a> •
-  <a href="#Directories and File Structure#">Infrastructure</a> •
-  <a href="#Usage#">Usage</a> •
-  <a href="#Troubleshooting#">Troubleshooting</a>
-
+  <a href="#overview">Overview</a> •
+  <a href="#components-deployed">Components Deployed</a> •
+  <a href="#directories-and-file-structure">Directories and File Structure</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#troubleshooting">Troubleshooting</a>
 </p>
 
-# Infrastructure Deployment with CI/CD
+
 
 ### by AWSome Architechs 
 
@@ -210,3 +214,5 @@ Open http://localhost:8080 in your web browser and log in with the ArgoCD creden
 
 * Check nodes for pod utilisation, each node can hold 11 pods and if this maximum is reached you will need to configure additional pods in either the AWS management console or the Terraform code. If you are editing the Terraform code, you will need to delete your tf.state file and re-apply Terraform after configuring your maximum and desired node sizes. This is due to a bug with Terraform, where the desired size cannot be edited after a Terraform apply command has been used. This will not be solved by destroying and re-applying the terraform code, as the tf.state file will point to the original chosen desired node size.
 * Ensure RDS database is configured with the username "postgres", changes to this username can result in unexpected behaviour in PgAdmin.
+
+## Collaborators
