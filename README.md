@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="./media/images/Add a heading (4).png" alt="Markdownify" width="150"></a>
+  <img src="./media/images/Add a heading (4).png" alt="Markdownify" width="200"></a>
 </h1>
 
 <h1 align="center">
