@@ -11,6 +11,5 @@ output "allow_egress_security_group_id" {
 }
 
 output "allow_db_security_group_id" {
-  
   value = aws_security_group.allow_db.id
 }
