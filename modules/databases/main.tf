@@ -6,13 +6,9 @@ resource "aws_db_instance" "default" {
   instance_class    = "db.t3.micro"
   username          = "postgres"
   password          = "cloud123"
-  #   parameter_group_name = "default"
   skip_final_snapshot = true
   publicly_accessible = true
 
-  # enabled_cloudwatch_logs_exports = [
-  #   "postgresql"
-  # ]
   db_subnet_group_name = aws_db_subnet_group.default.name
 
 }
