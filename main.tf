@@ -34,6 +34,8 @@ module "databases" {
   db_engine_version      = var.db_engine_version
   db_engine              = var.db_engine
   db_name                = var.db_name
+  db_storage_amount      = var.db_storage_amount
+
 }
 
 
