@@ -48,7 +48,7 @@ resource "aws_security_group_rule" "allow_https" {
 
 resource "aws_security_group" "allow_egress" {
   name        = "allow_egress"
-  description = "Allow egress inbound traffic"
+  description = "Allow egress traffic"
   vpc_id      = var.vpc_id
 
   tags = {

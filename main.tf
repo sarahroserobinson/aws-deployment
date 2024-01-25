@@ -12,7 +12,7 @@ module "eks" {
   cluster_name           = var.cluster_name
   cluster_version        = var.cluster_version
   vpc_id                 = module.networking.vpc_id
-  subnet_ids             = module.networking.public_subnets
+  subnet_ids             = concat(module.networking.public_subnets, module.networking.private_subnets)
   node_instance_type     = var.node_instance_type
   min_size               = var.min_size
   max_size               = var.max_size
@@ -26,16 +26,16 @@ module "security" {
 }
 
 module "databases" {
-  source                 = "./modules/databases"
+  source                = "./modules/databases"
   rds_security_group_id = module.security.allow_db_security_group_id
-  private_subnet_ids     = module.networking.private_subnets
-  db_password            = var.db_password
-  db_username            = var.db_username
-  db_instance_class      = var.db_instance_class
-  db_engine_version      = var.db_engine_version
-  db_engine              = var.db_engine
-  db_name                = var.db_name
-  db_storage_amount      = var.db_storage_amount
+  private_subnet_ids    = module.networking.private_subnets
+  db_password           = var.db_password
+  db_username           = var.db_username
+  db_instance_class     = var.db_instance_class
+  db_engine_version     = var.db_engine_version
+  db_engine             = var.db_engine
+  db_name               = var.db_name
+  db_storage_amount     = var.db_storage_amount
 
 }
 

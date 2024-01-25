@@ -28,6 +28,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: backend-service
   annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
     prometheus.io/port: "metrics-port"
     prometheus.io/scrape: "true"
 spec:

@@ -61,7 +61,7 @@ This group project builds and manages a cloud-based infrastructure for a learner
 
 <h1 align="center">
   <br>
-<img src="./media/images/infrastructure.png" alt="Markdownify" width="750"></a>
+<img src="./media/images/infrastructure.png" alt="diagram of infrastructure" width="750"></a>
 </h1>
 
 

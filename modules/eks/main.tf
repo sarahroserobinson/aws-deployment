@@ -1,5 +1,5 @@
- 
-  module "eks" {
+
+module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "19.15.2"
 
@@ -16,11 +16,11 @@
 
   eks_managed_node_groups = {
     one = {
-      name = "node-group-1"
-      instance_types = [var.node_instance_type]
-      min_size     = var.min_size
-      max_size     = var.max_size
-      desired_size = var.desired_size
+      name                   = "node-group-1"
+      instance_types         = [var.node_instance_type]
+      min_size               = var.min_size
+      max_size               = var.max_size
+      desired_size           = var.desired_size
       vpc_security_group_ids = var.vpc_security_group_ids
     }
   }

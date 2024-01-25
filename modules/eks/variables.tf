@@ -3,7 +3,7 @@ variable "cluster_name" {
 }
 
 variable "vpc_id" {
-  type    = string
+  type = string
 }
 
 variable "vpc_security_group_ids" {
