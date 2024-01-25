@@ -7,36 +7,16 @@ module "networking" {
 }
 
 module "eks" {
-  source  = "terraform-aws-modules/eks/aws"
-  version = "19.15.2"
-
-  cluster_name    = var.cluster_name
-  cluster_version = "1.28"
-
-  vpc_id                         = module.networking.vpc_id
-  subnet_ids                     = module.networking.public_subnets
-  cluster_endpoint_public_access = true
-
-  eks_managed_node_group_defaults = {
-    ami_type = "AL2_x86_64"
-  }
-
-  eks_managed_node_groups = {
-    one = {
-      name = "node-group-1"
-
-      instance_types = ["t3.small"]
-
-      min_size     = 1
-      max_size     = 3
-      desired_size = 3
-    }
-  }
-
-  tags = {
-    Environment = "dev"
-    Terraform   = "true"
-  }
+  source              = "./modules/eks"
+  cluster_name        = var.cluster_name
+  cluster_version     = var.cluster_version
+  vpc_id              = module.networking.vpc_id
+  subnet_ids          = module.networking.public_subnets
+  node_instance_type  = var.node_instance_type
+  min_size            = var.min_size
+  max_size            = var.max_size
+  desired_size        = var.desired_size
+  node_group_ami_type = var.node_group_ami_type
 }
 
 module "security" {
@@ -48,10 +28,14 @@ module "databases" {
   source                 = "./modules/databases"
   vpc_security_group_ids = [module.security.allow_http_security_group_id, module.security.allow_https_security_group_id, module.security.allow_egress_security_group_id, module.security.allow_db_security_group_id]
   subnet_ids             = module.networking.public_subnets
+  db_password            = var.db_password
+  db_username            = var.db_username
+  db_instance_class      = var.db_instance_class
+  db_engine_version      = var.db_engine_version
+  db_engine              = var.db_engine
+  db_name                = var.db_name
 }
 
-module "loadbalancing" {
-  source = "./modules/loadbalancing"
-}
+
 
 
