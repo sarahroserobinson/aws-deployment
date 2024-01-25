@@ -1,8 +1,8 @@
-variable "vpc_security_group_ids" {
-  type = list(string)
+variable "rds_security_group_id" {
+  type = string
 }
 
-variable "subnet_ids" {
+variable "private_subnet_ids" {
   type = list(string)
 }
 

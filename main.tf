@@ -7,16 +7,17 @@ module "networking" {
 }
 
 module "eks" {
-  source              = "./modules/eks"
-  cluster_name        = var.cluster_name
-  cluster_version     = var.cluster_version
-  vpc_id              = module.networking.vpc_id
-  subnet_ids          = module.networking.public_subnets
-  node_instance_type  = var.node_instance_type
-  min_size            = var.min_size
-  max_size            = var.max_size
-  desired_size        = var.desired_size
-  node_group_ami_type = var.node_group_ami_type
+  source                 = "./modules/eks"
+  vpc_security_group_ids = [module.security.allow_http_security_group_id, module.security.allow_https_security_group_id, module.security.allow_egress_security_group_id, module.security.allow_db_security_group_id]
+  cluster_name           = var.cluster_name
+  cluster_version        = var.cluster_version
+  vpc_id                 = module.networking.vpc_id
+  subnet_ids             = module.networking.public_subnets
+  node_instance_type     = var.node_instance_type
+  min_size               = var.min_size
+  max_size               = var.max_size
+  desired_size           = var.desired_size
+  node_group_ami_type    = var.node_group_ami_type
 }
 
 module "security" {
@@ -26,8 +27,8 @@ module "security" {
 
 module "databases" {
   source                 = "./modules/databases"
-  vpc_security_group_ids = [module.security.allow_http_security_group_id, module.security.allow_https_security_group_id, module.security.allow_egress_security_group_id, module.security.allow_db_security_group_id]
-  subnet_ids             = module.networking.public_subnets
+  rds_security_group_id = module.security.allow_db_security_group_id
+  private_subnet_ids     = module.networking.private_subnets
   db_password            = var.db_password
   db_username            = var.db_username
   db_instance_class      = var.db_instance_class
