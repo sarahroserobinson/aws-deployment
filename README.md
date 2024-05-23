@@ -59,12 +59,6 @@ Infrastructure Deployment with CI/CD
 This group project builds and manages a cloud-based infrastructure for a learner management system. DevOps practices were continuously integrated into the creation of this project to enhance the scalability and efficiency of the infrastructure and all for continual adaption. 
 
 
-<h1 align="center">
-  <br>
-<img src="./media/images/infrastructure.png" alt="diagram of infrastructure" width="750"></a>
-</h1>
-
-
 * Infrastructure as Code (IaC): Creating the infrastructure with Terraform allowed for the automation of the infrastructure setup
 * CI/CD Pipeline: The use of CircleCI and ArgoCD created a seamless, automated pipeline for continuous integration and delivery, streamlining the development process.
 
